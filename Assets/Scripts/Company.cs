@@ -11,9 +11,9 @@ public class Company
         stockPrize = initialPrize;
     }
 
-    public void UpdatePrize(int amount)
+    public void UpdatePrize(int newPrize)
     {
-        stockPrize += amount;
+        stockPrize = newPrize;
     }
 
 

@@ -19,8 +19,14 @@ public class CompanyListUI : MonoBehaviour
             record.GetComponent<RectTransform>().anchoredPosition = firstRecordPoint.GetComponent<RectTransform>().anchoredPosition + offset;
             offset += new Vector2(0, -recordSpace);
             record.company = company;
-            record.SetCompanyData(company.companyName, company.stockPrize, 0);
+            record.InitializeCompanyData(company.companyName, company.stockPrize, 0);
         }
+    }
+
+    public void UpdateCompaniesDisplay()
+    {
+        foreach (var record in records)
+            record.UpdateDisplay();
     }
 }
 

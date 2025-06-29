@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] UIManager uiManager;
 
     public static GameManager Instance { get; private set; }
-    public event Action OnNextRound;
+
 
     void Awake()
     {
@@ -17,12 +17,15 @@ public class GameManager : MonoBehaviour
             return;
         }
         Instance = this;
+    }
 
+    private void Start()
+    {
         uiManager.InitializeUI(stockMarket.companies);
     }
 
-    public void NextRound()
+    public void OnBtnNextRound()
     {
-        OnNextRound?.Invoke();
+        EventManager.Instance.NextRoundEvent();
     }
 }

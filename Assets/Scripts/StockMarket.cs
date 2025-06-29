@@ -1,10 +1,16 @@
 using NUnit.Framework;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class StockMarket : MonoBehaviour
 {
     public List<Company> companies { get; private set; }
+
+    private void OnEnable()
+    {
+        EventManager.Instance.OnNextRound += HandleOnNextRoundEvent;
+    }
 
     void Awake()
     {
@@ -23,11 +29,20 @@ public class StockMarket : MonoBehaviour
         };
     }
 
-    public void UpdateAllCompaniesPrize(int amount)
+    private void HandleOnNextRoundEvent()
     {
         foreach (Company company in companies)
         {
-            company.UpdatePrize(amount);
+            int newPrize = CountNewPrize();
+            company.UpdatePrize(newPrize);
+            EventManager.Instance.PrizeChangeEvent();
         }
+    }
+
+    private int CountNewPrize()
+    {
+        int newPrize = 2;
+
+        return newPrize;
     }
 }

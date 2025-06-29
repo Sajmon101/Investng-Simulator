@@ -11,13 +11,22 @@ public class CompanyRecord : MonoBehaviour
 
     private void Start()
     {
-        SetCompanyData(company.companyName, company.stockPrize, 0);
+        InitializeCompanyData(company.companyName, company.stockPrize, 0);
     }
 
-    public void SetCompanyData(string name, int stockPrize, int ownedStocks)
+    public void InitializeCompanyData(string name, int stockPrize, int ownedStocks)
     {
         companyNameText.text = name;
         stockPrizeText.text = stockPrize.ToString();
         this.ownedStocks.text = ownedStocks.ToString();
+    }
+
+    public void UpdateDisplay()
+    {
+        if (company != null)
+        {
+            stockPrizeText.text = company.stockPrize.ToString();
+            // this.ownedStocks.text = company.ownedStocks.ToString(); // Uncomment if ownedStocks is a property of Company
+        }
     }
 }
