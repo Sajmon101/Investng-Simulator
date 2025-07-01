@@ -24,7 +24,6 @@ public class UIManager : MonoBehaviour
         ShowPanel(nextRoundPanel);
     }
 
-
     public void InitializeUI(List<Company> companies)
     {
         companyListPanel.InitializeListUI(companies);
