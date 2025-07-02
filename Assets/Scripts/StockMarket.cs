@@ -47,17 +47,17 @@ public class StockMarket : MonoBehaviour
 
     private void HandleOnNextRoundEvent()
     {
-        UpdateCompaniesPrizes();
+        UpdateCompaniesPrices();
         UpdateCompaniesDirections();
+        EventManager.Instance.PrizeChangeEvent();
     }
 
-    private void UpdateCompaniesPrizes()
+    private void UpdateCompaniesPrices()
     {
         foreach (Company company in companies)
         {
             int newPrize = CountNewPrize(company);
-            company.UpdatePrize(newPrize);
-            EventManager.Instance.PrizeChangeEvent();
+            company.UpdatePrice(newPrize);
         }
     }
 
@@ -65,21 +65,20 @@ public class StockMarket : MonoBehaviour
     {
         foreach (Company company in companies)
         {
-            int stockPrize = company.stockPrize;
-            int previousStockPrize = company.previousStockPrize;
+            int stockPrize = company.stockPrice;
+            int previousStockPrize = company.previousStockPrice;
 
             if (stockPrize > previousStockPrize)
             {
-
-                company.UpdatePrizeDirection(Company.PriceChangeDirection.Up);
+                company.UpdatePriceDirection(Company.PriceChangeDirection.Up);
             }
             else if (stockPrize < previousStockPrize)
             {
-                company.UpdatePrizeDirection(Company.PriceChangeDirection.Down);
+                company.UpdatePriceDirection(Company.PriceChangeDirection.Down);
             }
             else
             {
-                company.UpdatePrizeDirection(Company.PriceChangeDirection.NoChange);
+                company.UpdatePriceDirection(Company.PriceChangeDirection.NoChange);
             }
         }
     }
@@ -94,7 +93,7 @@ public class StockMarket : MonoBehaviour
         {
             float delta = (boughtThisRound * demandFactor) - (soldThisRound * supplyFactor) + baseRandomness;
 
-            int newPrize = company.stockPrize + Mathf.RoundToInt(delta);
+            int newPrize = company.stockPrice + Mathf.RoundToInt(delta);
 
             return Math.Max(1, newPrize);
         }

@@ -4,9 +4,9 @@ using UnityEngine;
 public class Company
 {
     public string companyName { get; private set; } = "CompanyName";
-    public int stockPrize { get; private set; } = 0;
-    public int previousStockPrize { get; private set; } = 0;
-    public PriceChangeDirection prizeDirection { get; private set; } = PriceChangeDirection.NoChange;
+    public int stockPrice { get; private set; } = 0;
+    public int previousStockPrice { get; private set; } = 1;
+    public PriceChangeDirection priceDirection { get; private set; } = PriceChangeDirection.NoChange;
 
     public enum PriceChangeDirection
     {
@@ -15,22 +15,21 @@ public class Company
         NoChange
     }
 
-    public Company(string name, int initialPrize)
+    public Company(string name, int initialPrice)
     {
         companyName = name;
-        stockPrize = initialPrize;
+        stockPrice = initialPrice;
     }
 
-    public void UpdatePrize(int newPrize)
+    public void UpdatePrice(int newPrice)
     {
-        previousStockPrize = stockPrize;
-        stockPrize = newPrize;
+        previousStockPrice = stockPrice;
+        stockPrice = newPrice;
     }
 
-    public void UpdatePrizeDirection(PriceChangeDirection newDir)
+    public void UpdatePriceDirection(PriceChangeDirection newDir)
     {
-        prizeDirection = newDir;
+        priceDirection = newDir;
     }
-
 
 }
