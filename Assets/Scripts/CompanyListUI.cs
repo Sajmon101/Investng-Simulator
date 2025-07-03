@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -10,7 +11,7 @@ public class CompanyListUI : MonoBehaviour
     int recordSpace = 90;
     private List<CompanyRecord> records = new List<CompanyRecord>();
 
-    public void InitializeListUI(List<Company> companies)
+    public void InitializeListUI(List<Company> companies, Player player)
     {
         foreach (Company company in companies)
         {
@@ -20,6 +21,7 @@ public class CompanyListUI : MonoBehaviour
             offset += new Vector2(0, -recordSpace);
             record.company = company;
             record.InitializeCompanyData(company.companyName, company.stockPrice, 0);
+            record.player = player;
         }
     }
 
@@ -27,6 +29,15 @@ public class CompanyListUI : MonoBehaviour
     {
         foreach (var record in records)
             record.UpdateDisplay();
+    }
+
+    public void ShowRecordMessage(Company company, string message, InfoMessageType type)
+    {
+        CompanyRecord record = records.FirstOrDefault(r => r.company == company);
+        if (record != null)
+        {
+            record.ShowMessage(message, type);
+        }
     }
 }
 

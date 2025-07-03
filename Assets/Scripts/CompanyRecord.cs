@@ -1,4 +1,5 @@
 using NUnit.Framework;
+using System.Collections;
 using TMPro;
 using UnityEngine;
 
@@ -8,7 +9,10 @@ public class CompanyRecord : MonoBehaviour
     public TMP_Text stockPrizeText;
     public TMP_Text ownedStocks;
     public Company company;
+    public Player player;
     [SerializeField] ArrowChange arrowChange;
+    public TMP_Text messageText;
+    private Coroutine hideMessageCoroutine;
 
     private void Start()
     {
@@ -28,7 +32,42 @@ public class CompanyRecord : MonoBehaviour
         {
             stockPrizeText.text = company.stockPrice.ToString();
             arrowChange.ChangeArrow(company.priceDirection);
-            // this.ownedStocks.text = company.ownedStocks.ToString(); // Uncomment if ownedStocks is a property of Company
+            ownedStocks.text = player.GetOwnedStocksCount(company).ToString();
         }
+    }
+
+    public void OnBuyButtonClicked()
+    {
+        EventManager.Instance.BuyButtonClickedEvent(company);
+    }
+    public void OnSellButtonClicked()
+    {
+        EventManager.Instance.SellButtonClickedEvent(company);
+    }
+
+    public void ShowMessage(string message, InfoMessageType type)
+    {
+        messageText.text = message;
+        switch (type)
+        {
+            case InfoMessageType.Fail:
+                messageText.color = Color.red;
+                break;
+            case InfoMessageType.Success:
+                messageText.color = Color.green;
+                break;
+        }
+
+        if (hideMessageCoroutine != null)
+            StopCoroutine(hideMessageCoroutine);
+
+        hideMessageCoroutine = StartCoroutine(HideMessageAfterDelay(2f));
+    }
+
+    private IEnumerator HideMessageAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        messageText.text = "";
+        hideMessageCoroutine = null;
     }
 }

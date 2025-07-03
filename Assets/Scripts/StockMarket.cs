@@ -1,10 +1,8 @@
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using UnityEditor.IMGUI.Controls;
 using UnityEngine;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class StockMarket : MonoBehaviour
 {
@@ -14,10 +12,16 @@ public class StockMarket : MonoBehaviour
     private void OnEnable()
     {
         EventManager.Instance.OnNextRound += HandleOnNextRoundEvent;
+        EventManager.Instance.OnBuyButtonClicked += HandleOnBuyButtonClickedEvent;
+        EventManager.Instance.OnSellButtonClicked += HandleOnSellButtonClickedEvent;
     }
+
+
     private void OnDisable()
     {
         EventManager.Instance.OnNextRound -= HandleOnNextRoundEvent;
+        EventManager.Instance.OnBuyButtonClicked -= HandleOnBuyButtonClickedEvent;
+        EventManager.Instance.OnSellButtonClicked -= HandleOnSellButtonClickedEvent;
     }
 
     void Awake()
@@ -48,6 +52,9 @@ public class StockMarket : MonoBehaviour
     private void HandleOnNextRoundEvent()
     {
         UpdateCompaniesPrices();
+        //Debug.Log("Sold stocks this round: " + player.stocksSoldThisRound[companies[0]]);
+        //Debug.Log("Bought stocks this round: " + player.stocksBoughtThisRound[companies[0]]);
+        player.ResetPreviosRoundStocks();
         UpdateCompaniesDirections();
         EventManager.Instance.PrizeChangeEvent();
     }
@@ -101,4 +108,15 @@ public class StockMarket : MonoBehaviour
         UnityEngine.Debug.LogError($"Can't read player informations anout company {company.companyName} about bought or sold stocks this round");
         return 0;
     }
+
+    private void HandleOnBuyButtonClickedEvent(Company company)
+    {
+        player.TryBuyStock(company);
+    }
+
+    private void HandleOnSellButtonClickedEvent(Company company)
+    {
+        player.TrySellStock(company);
+    }
+
 }

@@ -7,11 +7,22 @@ public class UIManager : MonoBehaviour
 {
     [SerializeField] CompanyListUI companyListPanel;
     [SerializeField] GameObject nextRoundPanel;
+    [SerializeField] Player player;
+    [SerializeField] PlayerCashPanel playerCashPanel;
+    [SerializeField] RoundNrPanel roundNrPanel;
 
     private void OnEnable()
     {
         EventManager.Instance.OnNextRound += HandleNextRoundEvent;
         EventManager.Instance.OnPrizeChange += HandlePrizeChangeEvent;
+        EventManager.Instance.OnRecordMessage += HandleRecordMessageEvent;
+    }
+
+    private void HandleRecordMessageEvent(Company company, string msg, InfoMessageType type)
+    {
+        companyListPanel.ShowRecordMessage(company, msg, type);
+        companyListPanel.UpdateCompaniesDisplay();
+        playerCashPanel.UpdateDisplay();
     }
 
     private void HandlePrizeChangeEvent()
@@ -22,11 +33,13 @@ public class UIManager : MonoBehaviour
     private void HandleNextRoundEvent()
     {
         ShowPanel(nextRoundPanel);
+        roundNrPanel.IncreaseRoundNr();
     }
 
     public void InitializeUI(List<Company> companies)
     {
-        companyListPanel.InitializeListUI(companies);
+        companyListPanel.InitializeListUI(companies, player);
+        playerCashPanel.UpdateDisplay();
     }
 
     public void ShowPanel(GameObject panel)
