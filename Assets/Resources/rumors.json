@@ -1,0 +1,554 @@
+[
+  {
+    "rumor": "W branży technologicznej i transportowej mówi się o możliwych zmianach w rządowych dotacjach na innowacje – część firm może zyskać, inne stracić dostęp do funduszy.",
+    "effects": [
+      {
+        "companyId": 1,
+        "companyName": "AutoDrive",
+        "text": "Brak wpływu na firmę. Kurs bez zmian.",
+        "change": 0
+      },
+      {
+        "companyId": 2,
+        "companyName": "TechNova",
+        "text": "TechNova otrzymała rozszerzony grant badawczy. Kurs wzrósł o 15%.",
+        "change": 0.15
+      },
+      {
+        "companyId": 3,
+        "companyName": "GreenFuel",
+        "text": "GreenFuel nie zakwalifikowało się do programu dotacji. Kurs spadł o 12%.",
+        "change": -0.12
+      }
+    ]
+  },
+  {
+    "rumor": "Zagraniczne fundusze inwestycyjne podobno przyglądają się polskiemu sektorowi technologicznemu i zrównoważonego transportu. Niektóre spółki mogą być na celowniku przejęć.",
+    "effects": [
+      {
+        "companyId": 1,
+        "companyName": "AutoDrive",
+        "text": "AutoDrive zostało wytypowane jako potencjalny cel przejęcia – kurs wzrósł o 20%.",
+        "change": 0.2
+      },
+      {
+        "companyId": 2,
+        "companyName": "TechNova",
+        "text": "Fundusz zrezygnował z inwestycji w TechNova po audycie. Kurs spadł o 10%.",
+        "change": -0.1
+      },
+      {
+        "companyId": 3,
+        "companyName": "GreenFuel",
+        "text": "Brak zmian – firma poza zainteresowaniem funduszy.",
+        "change": 0
+      }
+    ]
+  },
+  {
+    "rumor": "Nowe europejskie regulacje dotyczące emisji CO2 uderzą w część sektora transportowego i produkcji energii – niektóre firmy już podobno zmieniają strategie.",
+    "effects": [
+      {
+        "companyId": 1,
+        "companyName": "AutoDrive",
+        "text": "AutoDrive wprowadza nową generację silników niskoemisyjnych. Kurs wzrósł o 14%.",
+        "change": 0.14
+      },
+      {
+        "companyId": 2,
+        "companyName": "TechNova",
+        "text": "Regulacje nie mają wpływu na TechNova. Kurs bez zmian.",
+        "change": 0
+      },
+      {
+        "companyId": 3,
+        "companyName": "GreenFuel",
+        "text": "GreenFuel musi wstrzymać produkcję w dwóch zakładach. Kurs spadł o 20%.",
+        "change": -0.2
+      }
+    ]
+  },
+  {
+    "rumor": "Pojawiły się doniesienia, że Unia Europejska rozważa zaostrzenie norm emisji spalin dla pojazdów autonomicznych.",
+    "effects": [
+      {
+        "companyId": 1,
+        "companyName": "AutoDrive",
+        "text": "Nowe regulacje mogą utrudnić ekspansję AutoDrive na rynki unijne. Kurs spadł o 6%.",
+        "change": -0.06
+      },
+      {
+        "companyId": 2,
+        "companyName": "TechNova",
+        "text": "TechNova może zyskać na dostarczaniu technologii optymalizujących spalanie. Kurs wzrósł o 4%.",
+        "change": 0.04
+      },
+      {
+        "companyId": 3,
+        "companyName": "GreenFuel",
+        "text": "GreenFuel postrzegana jako beneficjent nowych regulacji. Kurs wzrósł o 7%.",
+        "change": 0.07
+      }
+    ]
+  },
+  {
+    "rumor": "Krążą plotki o możliwym przejęciu start-upu zajmującego się bateriami półprzewodnikowymi przez dużego gracza z Doliny Krzemowej.",
+    "effects": [
+      {
+        "companyId": 1,
+        "companyName": "AutoDrive",
+        "text": "AutoDrive może zyskać jako potencjalny partner technologiczny w rozwoju nowej baterii. Kurs wzrósł o 5%.",
+        "change": 0.05
+      },
+      {
+        "companyId": 2,
+        "companyName": "TechNova",
+        "text": "Niektóre media wskazują TechNova jako potencjalnego nabywcę start-upu. Kurs wzrósł o 12%.",
+        "change": 0.12
+      },
+      {
+        "companyId": 3,
+        "companyName": "GreenFuel",
+        "text": "Brak bezpośredniego związku z rynkiem baterii. Kurs bez zmian.",
+        "change": 0
+      }
+    ]
+  },
+  {
+    "rumor": "Nieoficjalnie mówi się o możliwych cyberatakach na infrastrukturę firm zajmujących się energią odnawialną.",
+    "effects": [
+      {
+        "companyId": 1,
+        "companyName": "AutoDrive",
+        "text": "Brak bezpośredniego zagrożenia dla działalności AutoDrive. Kurs bez zmian.",
+        "change": 0
+      },
+      {
+        "companyId": 2,
+        "companyName": "TechNova",
+        "text": "TechNova zapowiedziała wzmocnienie zabezpieczeń i sprzedaż nowych rozwiązań cyberbezpieczeństwa. Kurs wzrósł o 6%.",
+        "change": 0.06
+      },
+      {
+        "companyId": 3,
+        "companyName": "GreenFuel",
+        "text": "GreenFuel uznana za potencjalny cel ataku. Kurs spadł o 9%.",
+        "change": -0.09
+      }
+    ]
+  },
+  {
+    "rumor": "Pojawiły się informacje, że w jednym z krajów azjatyckich powstała technologia pozwalająca na tańszą produkcję czujników LiDAR, co może wpłynąć na cały sektor autonomicznych pojazdów.",
+    "effects": [
+      {
+        "companyId": 1,
+        "companyName": "AutoDrive",
+        "text": "AutoDrive korzysta z importowanych komponentów LiDAR. Tańsza technologia może obniżyć koszty produkcji. Kurs wzrósł o 6%.",
+        "change": 0.06
+      },
+      {
+        "companyId": 2,
+        "companyName": "TechNova",
+        "text": "TechNova rozwija własne czujniki, więc plotka została przyjęta z rezerwą. Kurs bez zmian.",
+        "change": 0
+      },
+      {
+        "companyId": 3,
+        "companyName": "GreenFuel",
+        "text": "GreenFuel nie korzysta z technologii LiDAR, ale inwestorzy przenieśli uwagę na sektor mobilności. Kurs spadł o 3%.",
+        "change": -0.03
+      }
+    ]
+  },
+  {
+    "rumor": "Nieoficjalnie mówi się, że jeden z dużych funduszy inwestycyjnych zamierza wycofać się z projektów związanych z biopaliwami drugiej generacji.",
+    "effects": [
+      {
+        "companyId": 1,
+        "companyName": "AutoDrive",
+        "text": "AutoDrive nie prowadzi bezpośrednich inwestycji w biopaliwa. Kurs bez zmian.",
+        "change": 0
+      },
+      {
+        "companyId": 2,
+        "companyName": "TechNova",
+        "text": "TechNova wcześniej współpracowała z tym funduszem przy projektach badawczych. Kurs spadł o 4%.",
+        "change": -0.04
+      },
+      {
+        "companyId": 3,
+        "companyName": "GreenFuel",
+        "text": "GreenFuel może mieć trudności z finansowaniem nowych instalacji. Kurs spadł o 8%.",
+        "change": -0.08
+      }
+    ]
+  },
+  {
+    "rumor": "Na zamkniętym forum branżowym pojawiły się informacje, że jeden z głównych dostawców półprzewodników planuje priorytetyzować klientów z sektora AI kosztem motoryzacji.",
+    "effects": [
+      {
+        "companyId": 1,
+        "companyName": "AutoDrive",
+        "text": "Możliwa utrata priorytetu w dostawach komponentów. Kurs spadł o 5%.",
+        "change": -0.05
+      },
+      {
+        "companyId": 2,
+        "companyName": "TechNova",
+        "text": "TechNova jako firma AI może zyskać lepszy dostęp do komponentów. Kurs wzrósł o 7%.",
+        "change": 0.07
+      },
+      {
+        "companyId": 3,
+        "companyName": "GreenFuel",
+        "text": "GreenFuel nie korzysta intensywnie z półprzewodników. Kurs bez zmian.",
+        "change": 0
+      }
+    ]
+  },
+  {
+    "rumor": "Mówi się, że rząd USA rozważa wprowadzenie ulg podatkowych dla firm eksportujących technologię zielonej energii do Ameryki Południowej.",
+    "effects": [
+      {
+        "companyId": 1,
+        "companyName": "AutoDrive",
+        "text": "AutoDrive nie prowadzi znaczącej działalności eksportowej w tym regionie. Kurs bez zmian.",
+        "change": 0
+      },
+      {
+        "companyId": 2,
+        "companyName": "TechNova",
+        "text": "TechNova analizuje możliwości wejścia na nowe rynki z technologiami zarządzania energią. Kurs wzrósł o 5%.",
+        "change": 0.05
+      },
+      {
+        "companyId": 3,
+        "companyName": "GreenFuel",
+        "text": "GreenFuel może skorzystać z ulg jako eksporter biopaliw. Kurs wzrósł o 9%.",
+        "change": 0.09
+      }
+    ]
+  },
+  {
+    "rumor": "Branżowe media donoszą, że Chiny planują wprowadzenie kontrowersyjnych regulacji dotyczących eksportu rzadkich metali wykorzystywanych w produkcji elektroniki i baterii.",
+    "effects": [
+      {
+        "companyId": 1,
+        "companyName": "AutoDrive",
+        "text": "AutoDrive uzależnione od importu tych metali do produkcji komponentów. Kurs spadł o 6%.",
+        "change": -0.06
+      },
+      {
+        "companyId": 2,
+        "companyName": "TechNova",
+        "text": "TechNova wcześniej zabezpieczyła dostawy poprzez alternatywnych dostawców. Kurs wzrósł o 4%.",
+        "change": 0.04
+      },
+      {
+        "companyId": 3,
+        "companyName": "GreenFuel",
+        "text": "GreenFuel korzysta z innych surowców, ale rynek zareagował ogólnym niepokojem. Kurs spadł o 2%.",
+        "change": -0.02
+      }
+    ]
+  },
+  {
+    "rumor": "Na zamkniętej konferencji dla inwestorów padła sugestia, że Stany Zjednoczone mogą wprowadzić program priorytetowego wspierania projektów opartych na syntetycznych paliwach.",
+    "effects": [
+      {
+        "companyId": 1,
+        "companyName": "AutoDrive",
+        "text": "AutoDrive bada możliwość dostosowania napędów do syntetycznych paliw. Kurs wzrósł o 3%.",
+        "change": 0.03
+      },
+      {
+        "companyId": 2,
+        "companyName": "TechNova",
+        "text": "TechNova nie jest bezpośrednio zaangażowana w sektor paliwowy. Kurs bez zmian.",
+        "change": 0
+      },
+      {
+        "companyId": 3,
+        "companyName": "GreenFuel",
+        "text": "Syntetyczne paliwa mogą stanowić konkurencję dla biopaliw GreenFuel. Kurs spadł o 5%.",
+        "change": -0.05
+      }
+    ]
+  },
+  {
+    "rumor": "Nieoficjalnie mówi się, że UE planuje przywrócenie ceł na komponenty technologiczne z krajów spoza strefy Schengen.",
+    "effects": [
+      {
+        "companyId": 1,
+        "companyName": "AutoDrive",
+        "text": "AutoDrive importuje część podzespołów z Azji. Kurs spadł o 4%.",
+        "change": -0.04
+      },
+      {
+        "companyId": 2,
+        "companyName": "TechNova",
+        "text": "TechNova produkuje większość komponentów lokalnie. Kurs wzrósł o 2%.",
+        "change": 0.02
+      },
+      {
+        "companyId": 3,
+        "companyName": "GreenFuel",
+        "text": "GreenFuel nie zostanie objęte nowymi cłami. Kurs bez zmian.",
+        "change": 0
+      }
+    ]
+  },
+  {
+    "rumor": "W branży AI pojawiły się pogłoski, że nadchodzące modele językowe mogą skutecznie wspierać analizę rynku surowców, co może zrewolucjonizować planowanie produkcji w sektorze energii.",
+    "effects": [
+      {
+        "companyId": 1,
+        "companyName": "AutoDrive",
+        "text": "AutoDrive planuje pilotażowe wdrożenie AI do optymalizacji logistyki. Kurs wzrósł o 4%.",
+        "change": 0.04
+      },
+      {
+        "companyId": 2,
+        "companyName": "TechNova",
+        "text": "TechNova już testuje tego typu narzędzia. Kurs wzrósł o 6%.",
+        "change": 0.06
+      },
+      {
+        "companyId": 3,
+        "companyName": "GreenFuel",
+        "text": "GreenFuel rozważa wdrożenie AI, ale nie ma jeszcze konkretnych działań. Kurs bez zmian.",
+        "change": 0
+      }
+    ]
+  },
+  {
+    "rumor": "Krążą informacje, że planowany nowy standard ładowania pojazdów elektrycznych może nie być kompatybilny z niektórymi starszymi modelami.",
+    "effects": [
+      {
+        "companyId": 1,
+        "companyName": "AutoDrive",
+        "text": "AutoDrive zapowiedziało aktualizację systemów zgodnie z nowym standardem. Kurs wzrósł o 3%.",
+        "change": 0.03
+      },
+      {
+        "companyId": 2,
+        "companyName": "TechNova",
+        "text": "TechNova dostarcza rozwiązania dla stacji ładowania – potencjalnie korzystna zmiana. Kurs wzrósł o 5%.",
+        "change": 0.05
+      },
+      {
+        "companyId": 3,
+        "companyName": "GreenFuel",
+        "text": "Zmiana standardów nie dotyczy sektora biopaliw. Kurs bez zmian.",
+        "change": 0
+      }
+    ]
+  },
+  {
+    "rumor": "Pojawiły się informacje, że jedna z agencji kosmicznych testuje napędy hybrydowe opracowane przez firmy spoza sektora lotniczego.",
+    "effects": [
+      {
+        "companyId": 1,
+        "companyName": "AutoDrive",
+        "text": "Plotki łączą AutoDrive z programem testowym, co wywołało falę spekulacji. Kurs wzrósł o 8%.",
+        "change": 0.08
+      },
+      {
+        "companyId": 2,
+        "companyName": "TechNova",
+        "text": "Brak udziału w projekcie, ale rynek widzi potencjał przyszłych wdrożeń. Kurs wzrósł o 2%.",
+        "change": 0.02
+      },
+      {
+        "companyId": 3,
+        "companyName": "GreenFuel",
+        "text": "GreenFuel nie jest powiązane z sektorem kosmicznym. Kurs bez zmian.",
+        "change": 0
+      }
+    ]
+  },
+  {
+    "rumor": "Wśród analityków mówi się o możliwym wzroście cen kredytów dla firm technologicznych po decyzji jednego z największych banków centralnych.",
+    "effects": [
+      {
+        "companyId": 1,
+        "companyName": "AutoDrive",
+        "text": "AutoDrive posiada stabilne finansowanie długoterminowe. Kurs bez zmian.",
+        "change": 0
+      },
+      {
+        "companyId": 2,
+        "companyName": "TechNova",
+        "text": "Wzrost kosztów finansowania projektów badawczo-rozwojowych niepokoi inwestorów. Kurs spadł o 4%.",
+        "change": -0.04
+      },
+      {
+        "companyId": 3,
+        "companyName": "GreenFuel",
+        "text": "GreenFuel ma niski poziom zadłużenia. Kurs bez zmian.",
+        "change": 0
+      }
+    ]
+  },
+  {
+    "rumor": "Wyciek z jednego z dużych laboratoriów badawczych sugeruje, że osiągnięto przełom w produkcji wodoru z odpadów rolniczych przy niższych kosztach.",
+    "effects": [
+      {
+        "companyId": 1,
+        "companyName": "AutoDrive",
+        "text": "AutoDrive prowadzi testy silników wodorowych, co zwiększyło zainteresowanie inwestorów. Kurs wzrósł o 6%.",
+        "change": 0.06
+      },
+      {
+        "companyId": 2,
+        "companyName": "TechNova",
+        "text": "TechNova może dostarczać rozwiązania IT dla tego typu instalacji. Kurs wzrósł o 2%.",
+        "change": 0.02
+      },
+      {
+        "companyId": 3,
+        "companyName": "GreenFuel",
+        "text": "Nowa technologia może stanowić konkurencję dla biopaliw. Kurs spadł o 7%.",
+        "change": -0.07
+      }
+    ]
+  },
+  {
+    "rumor": "W kręgach dyplomatycznych mówi się o możliwym porozumieniu handlowym między Kanadą a krajami Europy Środkowej, z naciskiem na współpracę w zakresie infrastruktury mobilności elektrycznej.",
+    "effects": [
+      {
+        "companyId": 1,
+        "companyName": "AutoDrive",
+        "text": "AutoDrive rozważa rozszerzenie obecności na rynki objęte porozumieniem. Kurs wzrósł o 5%.",
+        "change": 0.05
+      },
+      {
+        "companyId": 2,
+        "companyName": "TechNova",
+        "text": "TechNova może pośrednio skorzystać jako dostawca infrastruktury sieciowej. Kurs wzrósł o 3%.",
+        "change": 0.03
+      },
+      {
+        "companyId": 3,
+        "companyName": "GreenFuel",
+        "text": "Nieprzewidywalny wpływ na rynek biopaliw. Kurs bez zmian.",
+        "change": 0
+      }
+    ]
+  },
+  {
+    "rumor": "Niepotwierdzone przecieki sugerują, że jeden z czołowych producentów akumulatorów zamierza ograniczyć współpracę z wybranymi firmami z sektora automotive z powodu ryzyka patentowego.",
+    "effects": [
+      {
+        "companyId": 1,
+        "companyName": "AutoDrive",
+        "text": "AutoDrive znalazło się na liście firm zagrożonych zerwaniem współpracy. Kurs spadł o 17%.",
+        "change": -0.17
+      },
+      {
+        "companyId": 2,
+        "companyName": "TechNova",
+        "text": "TechNova posiada własne technologie bateryjne – inwestorzy widzą przewagę. Kurs wzrósł o 9%.",
+        "change": 0.09
+      },
+      {
+        "companyId": 3,
+        "companyName": "GreenFuel",
+        "text": "GreenFuel nie współpracuje z tym producentem. Kurs bez zmian.",
+        "change": 0
+      }
+    ]
+  },
+  {
+    "rumor": "Źródła w sektorze bankowym donoszą o planowanym uwolnieniu ogromnych środków z funduszu transformacji energetycznej w Azji Południowo-Wschodniej.",
+    "effects": [
+      {
+        "companyId": 1,
+        "companyName": "AutoDrive",
+        "text": "AutoDrive rozważa budowę fabryki w Malezji. Rynek zareagował euforycznie. Kurs wzrósł o 21%.",
+        "change": 0.21
+      },
+      {
+        "companyId": 2,
+        "companyName": "TechNova",
+        "text": "TechNova już posiada kontrakty w regionie. Kurs wzrósł o 13%.",
+        "change": 0.13
+      },
+      {
+        "companyId": 3,
+        "companyName": "GreenFuel",
+        "text": "GreenFuel nie ma obecności w Azji – inwestorzy ocenili to jako stratę szansy. Kurs spadł o 8%.",
+        "change": -0.08
+      }
+    ]
+  },
+  {
+    "rumor": "Na forum ONZ pojawiła się propozycja globalnej opłaty węglowej obejmującej również biopaliwa – spotkało się to z mieszanymi reakcjami rządów.",
+    "effects": [
+      {
+        "companyId": 1,
+        "companyName": "AutoDrive",
+        "text": "AutoDrive może ponieść wyższe koszty operacyjne. Kurs spadł o 6%.",
+        "change": -0.06
+      },
+      {
+        "companyId": 2,
+        "companyName": "TechNova",
+        "text": "TechNova oferuje rozwiązania do raportowania emisji – kurs wzrósł o 11%.",
+        "change": 0.11
+      },
+      {
+        "companyId": 3,
+        "companyName": "GreenFuel",
+        "text": "Zaskakujące ujęcie biopaliw w propozycji ONZ uderza w model biznesowy GreenFuel. Kurs spadł aż o 22%.",
+        "change": -0.22
+      }
+    ]
+  },
+  {
+    "rumor": "Anonimowy whistleblower ujawnił, że rząd jednego z krajów planuje przetestować autonomiczne systemy transportowe w skali całych miast – jednym z partnerów ma być europejska firma.",
+    "effects": [
+      {
+        "companyId": 1,
+        "companyName": "AutoDrive",
+        "text": "AutoDrive wymieniane jest jako potencjalny partner pilotażu. Kurs wzrósł o 18%.",
+        "change": 0.18
+      },
+      {
+        "companyId": 2,
+        "companyName": "TechNova",
+        "text": "TechNova może dostarczyć systemy zarządzania ruchem. Kurs wzrósł o 12%.",
+        "change": 0.12
+      },
+      {
+        "companyId": 3,
+        "companyName": "GreenFuel",
+        "text": "Brak związku z projektem – inwestorzy przenoszą środki do firm technologicznych. Kurs spadł o 4%.",
+        "change": -0.04
+      }
+    ]
+  },
+  {
+    "rumor": "W mediach branżowych pojawiła się spekulacja, że jedna z dużych agencji ratingowych zamierza obniżyć ocenę ryzyka dla producentów technologii związanych z energią jądrową.",
+    "effects": [
+      {
+        "companyId": 1,
+        "companyName": "AutoDrive",
+        "text": "AutoDrive nie działa w tej technologii – kurs bez zmian.",
+        "change": 0
+      },
+      {
+        "companyId": 2,
+        "companyName": "TechNova",
+        "text": "TechNova współpracuje przy systemach kontroli dla reaktorów nowej generacji. Kurs wzrósł o 19%.",
+        "change": 0.19
+      },
+      {
+        "companyId": 3,
+        "companyName": "GreenFuel",
+        "text": "Energetyka jądrowa może osłabić popyt na biopaliwa. Kurs spadł o 10%.",
+        "change": -0.1
+      }
+    ]
+  }
+]

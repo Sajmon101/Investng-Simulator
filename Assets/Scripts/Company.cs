@@ -7,6 +7,7 @@ public class Company
     public int stockPrice { get; private set; } = 0;
     public int previousStockPrice { get; private set; } = 1;
     public PriceChangeDirection priceDirection { get; private set; } = PriceChangeDirection.NoChange;
+    public int companyID { get; private set; } = -1;
 
     public enum PriceChangeDirection
     {
@@ -15,8 +16,9 @@ public class Company
         NoChange
     }
 
-    public Company(string name, int initialPrice)
+    public Company(int id, string name, int initialPrice)
     {
+        companyID = id;
         companyName = name;
         stockPrice = initialPrice;
     }

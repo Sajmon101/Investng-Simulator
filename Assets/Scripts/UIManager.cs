@@ -10,6 +10,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] Player player;
     [SerializeField] PlayerCashPanel playerCashPanel;
     [SerializeField] RoundNrPanel roundNrPanel;
+    public RumorPanel rumorPanel;
 
     private void OnEnable()
     {
@@ -21,30 +22,32 @@ public class UIManager : MonoBehaviour
     private void HandleRecordMessageEvent(Company company, string msg, InfoMessageType type)
     {
         companyListPanel.ShowRecordMessage(company, msg, type);
-        companyListPanel.UpdateCompaniesDisplay();
+        companyListPanel.UpdatePanel();
         playerCashPanel.UpdateDisplay();
     }
 
     private void HandlePrizeChangeEvent()
     {
-        companyListPanel.UpdateCompaniesDisplay();
+        companyListPanel.UpdatePanel();
     }
 
     private void HandleNextRoundEvent()
     {
-        ShowPanel(nextRoundPanel);
         roundNrPanel.IncreaseRoundNr();
     }
 
-    public void InitializeUI(List<Company> companies)
+    public void InitializeCompaniesRecords(List<Company> companies)
     {
         companyListPanel.InitializeListUI(companies, player);
-        playerCashPanel.UpdateDisplay();
     }
 
     public void ShowPanel(GameObject panel)
     {
         panel.SetActive(true);
+
+        var initializable = panel.GetComponent<IUpdatablePanel>();
+        if (initializable != null)
+            initializable.UpdatePanel();
     }
 
     public void HidePanel(GameObject panel)
