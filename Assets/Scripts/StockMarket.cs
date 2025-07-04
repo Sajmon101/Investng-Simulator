@@ -93,17 +93,16 @@ public class StockMarket : MonoBehaviour
     private int CountNewPrize(Company company)
     {
         int newPrice = company.stockPrice;
-        Debug.Log("Current price: " + newPrice);
-        newPrice += ModifyPriceDueToRumorEffects(company);
-        Debug.Log("Price after rumors: " + newPrice);
-        newPrice += ModifyPriceDueToSupply(company);
-        Debug.Log("Price after supply and demand: " + newPrice);
-
+        //Debug.Log("Current price: " + newPrice);
+        newPrice += CalculatePriceModifierFromRumors(company);
+        //Debug.Log("Price after rumors: " + newPrice);
+        newPrice += CalculatePriceModifierDueToSupply(company);
+        //Debug.Log("Price after supply and demand: " + newPrice);
 
         return newPrice;
     }
 
-    private int ModifyPriceDueToRumorEffects(Company company)
+    private int CalculatePriceModifierFromRumors(Company company)
     {
         int currentCompanyPrice = company.stockPrice;
         float percentChange = RumorManager.Instance.GetPriceChangeForCompany(company);
@@ -112,21 +111,24 @@ public class StockMarket : MonoBehaviour
 
         return priceModifier;
     }
-    private int ModifyPriceDueToSupply(Company company)
+    private int CalculatePriceModifierDueToSupply(Company company)
     {
-        float baseRandomness = UnityEngine.Random.Range(-150f, 150f);
-        float demandFactor = 25f;
-        float supplyFactor = 25f;
+        float baseRandomness = UnityEngine.Random.Range(-1.5f, 1.5f); // losowy wp³yw w % (-1.5% do 1.5%)
+        float demandFactor = 0.25f; // 0.25% za ka¿d¹ kupion¹ akcjê
+        float supplyFactor = 0.25f; // 0.25% za ka¿d¹ sprzedan¹ akcjê (ujemnie)
 
         if (player.stocksBoughtThisRound.TryGetValue(company, out int boughtThisRound) && player.stocksSoldThisRound.TryGetValue(company, out int soldThisRound))
         {
-            float priceModifier = (boughtThisRound * demandFactor) - (soldThisRound * supplyFactor) + baseRandomness;
+            // suma procentowa zmiany
+            float percentChange = (boughtThisRound * demandFactor) - (soldThisRound * supplyFactor) + baseRandomness;
 
-            return Mathf.RoundToInt(priceModifier);
+            // nowa cena = stara cena * (1 + zmiana%)
+            float priceChange = company.stockPrice * (percentChange / 100f);
 
+            return Mathf.RoundToInt(priceChange);
         }
 
-        Debug.LogError($"Can't update company price due to supply, demand");
+        Debug.LogError("Can't update company price due to supply, demand");
         return 0;
     }
 

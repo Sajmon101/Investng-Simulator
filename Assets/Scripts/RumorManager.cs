@@ -20,7 +20,7 @@ public class RumorManager : MonoBehaviour
     //    }
     //}
 
-    public static RumorManager Instance;
+    public static RumorManager Instance { get; private set; }
     private List<Rumor> rumors;
     private Rumor currentRumor;
 
@@ -52,7 +52,7 @@ public class RumorManager : MonoBehaviour
         int i = Random.Range(0, rumors.Count);
         currentRumor = rumors[i];
         rumors.RemoveAt(i);
-        Debug.Log(rumors.Count + " rumors left after drawing a new one.");
+        Debug.Log(" wylosowana plotka nr"+ i);
     }
     
     public string GetRumorText()
