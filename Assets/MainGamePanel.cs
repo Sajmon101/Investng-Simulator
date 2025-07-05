@@ -6,9 +6,12 @@ public class MainGamePanel : MonoBehaviour, IUpdatablePanel
     [SerializeField] RoundNrPanel roundNrPanel;
     [SerializeField] PlayerCashPanel playerCashPanel;
     [SerializeField] RumorPanel rumorPanel;
+    [SerializeField] RandomEventsPanel randomEventsPanel;
 
     public void UpdatePanel()
     {
         rumorPanel.UpdatePanel();
+        playerCashPanel.UpdatePanel();
+        randomEventsPanel.UpdatePanel();
     }
 }

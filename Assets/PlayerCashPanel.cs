@@ -8,11 +8,6 @@ public class PlayerCashPanel : MonoBehaviour, IUpdatablePanel
 
     public void UpdatePanel()
     {
-        UpdateDisplay();
-    }
-
-    public void UpdateDisplay()
-    {
         cashText.text = player.currentCash.ToString();
     }
 }

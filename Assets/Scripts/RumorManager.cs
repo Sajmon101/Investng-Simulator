@@ -4,21 +4,6 @@ using UnityEngine;
 
 public class RumorManager : MonoBehaviour
 {
-    //void Start()
-    //{
-    //    // Wczytaj plik
-
-
-    //    // Test: wyœwietl w konsoli
-    //    foreach (var rumor in rumors)
-    //    {
-    //        Debug.Log($"Plotka: {rumor.rumor}");
-    //        foreach (var eff in rumor.effects)
-    //        {
-    //            Debug.Log($"Firma: {eff.companyId.ToString()}, Tekst: {eff.text}, Zmiana: {eff.change}");
-    //        }
-    //    }
-    //}
 
     public static RumorManager Instance { get; private set; }
     private List<Rumor> rumors;

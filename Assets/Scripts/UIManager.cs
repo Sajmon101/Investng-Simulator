@@ -10,20 +10,29 @@ public class UIManager : MonoBehaviour
     [SerializeField] Player player;
     [SerializeField] PlayerCashPanel playerCashPanel;
     [SerializeField] RoundNrPanel roundNrPanel;
+    [SerializeField] EventLogPanel eventLogPanel;
+    [SerializeField] RandomEventsPanel randomEventPanel;
     public RumorPanel rumorPanel;
 
     private void OnEnable()
     {
+        RandomEventManager.Instance.OnRandomEventTriggered += HandleRandomEventTrigger;
         EventManager.Instance.OnNextRound += HandleNextRoundEvent;
         EventManager.Instance.OnPrizeChange += HandlePrizeChangeEvent;
         EventManager.Instance.OnRecordMessage += HandleRecordMessageEvent;
+    }
+
+    private void HandleRandomEventTrigger(IRandomEvent obj)
+    {
+        eventLogPanel.AddLog(obj.GetAlertDescription());
+        randomEventPanel.SetPanelData(obj.GetAlertDescription());
     }
 
     private void HandleRecordMessageEvent(Company company, string msg, InfoMessageType type)
     {
         companyListPanel.ShowRecordMessage(company, msg, type);
         companyListPanel.UpdatePanel();
-        playerCashPanel.UpdateDisplay();
+        playerCashPanel.UpdatePanel();
     }
 
     private void HandlePrizeChangeEvent()
@@ -33,7 +42,7 @@ public class UIManager : MonoBehaviour
 
     private void HandleNextRoundEvent()
     {
-        roundNrPanel.IncreaseRoundNr();
+        GameManager.Instance.IncreaseRoundNr();
     }
 
     public void InitializeCompaniesRecords(List<Company> companies)

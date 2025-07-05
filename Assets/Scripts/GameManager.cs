@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] MainGamePanel mainGamePanel;
 
     public static GameManager Instance { get; private set; }
-
+    public int roundNr = 0;
 
     void Awake()
     {
@@ -33,5 +33,17 @@ public class GameManager : MonoBehaviour
     public void OnBtnNextRound()
     {
         EventManager.Instance.NextRoundEvent();
+
+        IRandomEvent randomEvent = new SectorEvent();
+        if (!RandomEventManager.Instance.TryTriggerEvent(randomEvent))
+        {
+            randomEvent = new SingleCompanyEvent();
+            RandomEventManager.Instance.TryTriggerEvent(randomEvent);
+        }
+    }
+
+    public void IncreaseRoundNr()
+    {
+        roundNr++;
     }
 }

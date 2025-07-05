@@ -16,7 +16,9 @@ public class Player : MonoBehaviour
 
     public bool TryBuyStock(Company company)
     {
-        if(company.stockPrice <= currentCash)
+        CheckForMassiveBuy(company);
+
+        if (company.stockPrice <= currentCash)
         {
             UpdateCash(-company.stockPrice);
             AddStock(company);
@@ -30,6 +32,18 @@ public class Player : MonoBehaviour
             return false;
         }
 
+    }
+
+    private void CheckForMassiveBuy(Company company)
+    {
+        if (stocksBoughtThisRound.ContainsKey(company))
+        {
+            if (stocksBoughtThisRound[company] >= 10)
+            {
+                IRandomEvent randomEvent = new PlayerTriggerEvent(company);
+                RandomEventManager.Instance.TryTriggerEvent(randomEvent);
+            }
+        }
     }
 
     public bool TrySellStock(Company company)

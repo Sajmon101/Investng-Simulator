@@ -8,6 +8,7 @@ public class StockMarket : MonoBehaviour
 {
     public List<Company> companies { get; private set; }
     [SerializeField] private Player player;
+    public static StockMarket Instance { get; private set; }
 
     private void OnEnable()
     {
@@ -26,6 +27,9 @@ public class StockMarket : MonoBehaviour
 
     void Awake()
     {
+        if (Instance == null) Instance = this;
+        else Destroy(gameObject);
+
         CreateCompanies();
         InitializePlayersStocks();
     }
@@ -35,9 +39,9 @@ public class StockMarket : MonoBehaviour
     {
         companies = new List<Company>
         {
-            new Company(1, "AutoDrive", 1000),
-            new Company(2, "TechNova", 1500),
-            new Company(3, "GreenFuel", 2000)
+            new Company(1, "AutoDrive", 1000, new List<Sector> { Sector.Automotive, Sector.Tech }),
+            new Company(2, "TechNova", 1500, new List < Sector > { Sector.Tech, Sector.Energy }),
+            new Company(3, "GreenFuel", 2000, new List < Sector > { Sector.Automotive, Sector.Energy })
         };
     }
 
