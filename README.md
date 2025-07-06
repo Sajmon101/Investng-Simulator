@@ -1,26 +1,26 @@
-# Przegląd gry
+# Game Overview
 
-Turowa gra symulacyjna, w której gracz zarządza akcjami firm. Celem gry jest maksymalizacja majątku poprzez kupowanie i sprzedawanie aktywów, reagowanie na losowe zdarzenia rynkowe oraz plotki wpływające na rynek.
+A turn-based simulation game where the player manages company stocks. The objective is to maximize your wealth by buying and selling assets, reacting to random market events, and responding to rumors that influence the market.
 
-## Instrukcja
+## How to Play
 
-- W każdej turze możesz kupować lub sprzedawać akcje różnych firm.
-- Zwracaj uwagę na pojawiające się plotki rynkowe — mogą one zmieniać wartość akcji różnych firm
-- Po zakończeniu tury zobacz jak zmieniła się sytuacja na rynku
-- Gra kończy się po 20 turach — wyświetlone zostanie podsumowanie: Twój majątek, wielkość przychodu/straty, firmy, których akcje przyniosły największy i najmniejszy zysk, oraz chronologiczny log wydarzeń i transakcji.
+- In each turn, you can buy or sell shares of different companies.
+- Pay attention to market rumors—they can affect the value of various companies’ stocks.
+- After each turn, see how the market situation has changed.
+- The game ends after 20 turns—a summary will be displayed: your total wealth, income/loss, the companies with the highest and lowest profit, and a chronological log of all events and transactions.
 
-### System eventów w grze
+### Event System
 
-W grze każdy event (zdarzenie losowe) implementuje interfejs `IRandomEvent`, który wymusza określenie prawdopodobieństwa (`probability`) oraz metodę wykonującą skutki eventu (`Apply()`). 
+Every event (random occurrence) in the game implements the `IRandomEvent` interface, which requires each event to define its probability (`probability`) and the method that applies its effects (`Apply()`).
 
-Wywoływaniem eventów zarządza klasa `RandomEventManager`, która na podstawie losowania i warunków gry decyduje, czy dany event powinien się wydarzyć. Informacja o każdym wywołanym evencie trafia do systemu logowania, co umożliwia prezentację pełnej historii rozgrywki.
+Event triggering is managed by the `RandomEventManager` class, which decides—based on randomness and game conditions—whether a given event should occur. Information about every triggered event is sent to a logging system, enabling the presentation of a complete history of the gameplay.
 
-Każdy rodzaj eventu jest osobną klasą implementującą konkretny efekt eventu. Zaimplementowane są trzy: pierwszy mający wpływ na jedną firmę, drugi mający wpływ na cały sektor, trzeci zależny od czynności gracza.
+Each type of event is a separate class implementing a specific event effect. There are currently three implemented: one affecting a single company, another impacting an entire sector, and a third one dependent on player actions.
 
-Cały system jest modularny, łatwy do rozbudowy i umożliwia dodawanie nowych typów eventów bez konieczności modyfikowania już istniejącej logiki gry.
+The entire system is modular, easy to extend, and allows for new event types to be added without modifying the existing game logic.
 
-### System plotek
+### Rumor System
 
-W grze zaimplementowano system plotek, który wprowadza dodatkowe, losowe zdarzenia wpływające na wybrane firmy. Plotki wczytywane są z pliku JSON, a każda z nich opisuje tekst plotki i konkretne efekty dla każdej z firm (np. wzrost lub spadek kursu). W każdej rundzie losowana jest jedna plotka, która może zmienić sytuację na rynku.
+The game also features a rumor system, introducing additional random occurrences that affect selected companies. Rumors are loaded from a JSON file at the start of the round, and each rumor includes descriptive text as well as specific effects for each company. At the end of the round, the actual events are revealed, which could partially be anticipated based on the rumors.
 
-Docelowo system plotek może zostać zintegrowany z systemem eventów pod kątem systemów logowania, co pozwoli prezentować graczowi pełną historię wszystkich wydarzeń w grze w jednym miejscu.
+In the future, the rumor system may be integrated with the event system in terms of logging, allowing the player to view the complete history of all in-game occurrences in one place.
