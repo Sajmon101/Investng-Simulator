@@ -21,6 +21,6 @@ Cały system jest modularny, łatwy do rozbudowy i umożliwia dodawanie nowych t
 
 ### System plotek
 
-W grze zaimplementowano system plotek (`RumorManager`), który wprowadza dodatkowe, losowe zdarzenia wpływające na wybrane firmy. Plotki wczytywane są z pliku JSON, a każda z nich opisuje tekst plotki i konkretne efekty dla każdej z firm (np. wzrost lub spadek kursu). W każdej rundzie losowana jest jedna plotka, która może zmienić sytuację na rynku.
+W grze zaimplementowano system plotek, który wprowadza dodatkowe, losowe zdarzenia wpływające na wybrane firmy. Plotki wczytywane są z pliku JSON, a każda z nich opisuje tekst plotki i konkretne efekty dla każdej z firm (np. wzrost lub spadek kursu). W każdej rundzie losowana jest jedna plotka, która może zmienić sytuację na rynku.
 
 Docelowo system plotek może zostać zintegrowany z systemem eventów pod kątem systemów logowania, co pozwoli prezentować graczowi pełną historię wszystkich wydarzeń w grze w jednym miejscu.
