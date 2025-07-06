@@ -19,6 +19,7 @@ public class EventManager : MonoBehaviour
     public event Action OnPrizeChange;
     public event Action<Company> OnBuyButtonClicked;
     public event Action<Company> OnSellButtonClicked;
+    public event Action OnGameEnd;
     public event Action<Company, string, InfoMessageType> OnRecordMessage;
 
     public void NextRoundEvent()
@@ -38,6 +39,10 @@ public class EventManager : MonoBehaviour
     public void SellButtonClickedEvent(Company company)
     {
         OnSellButtonClicked?.Invoke(company);
+    }
+    public void GameEndEvent()
+    {
+        OnGameEnd?.Invoke();
     }
 
     public void RecordMessageEvent(Company company, string msg, InfoMessageType infoMessageType)

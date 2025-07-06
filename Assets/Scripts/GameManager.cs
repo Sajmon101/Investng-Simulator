@@ -7,9 +7,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] UIManager uiManager;
     [SerializeField] RumorManager rumorManager;
     [SerializeField] MainGamePanel mainGamePanel;
+    [SerializeField] Player player;
 
     public static GameManager Instance { get; private set; }
-    public int roundNr = 0;
+    public int roundNr = 1;
+    public int maxRoundNr = 3;
 
     void Awake()
     {
@@ -32,18 +34,28 @@ public class GameManager : MonoBehaviour
 
     public void OnBtnNextRound()
     {
+        
         EventManager.Instance.NextRoundEvent();
 
-        IRandomEvent randomEvent = new SectorEvent();
+        SectorEvent randomEvent = new SectorEvent();
         if (!RandomEventManager.Instance.TryTriggerEvent(randomEvent))
         {
-            randomEvent = new SingleCompanyEvent();
-            RandomEventManager.Instance.TryTriggerEvent(randomEvent);
+            SingleCompanyEvent randomEvent2 = new SingleCompanyEvent();
+            RandomEventManager.Instance.TryTriggerEvent(randomEvent2);
         }
     }
 
     public void IncreaseRoundNr()
     {
         roundNr++;
+    }
+
+    public void QuitGame()
+    {
+        #if UNITY_EDITOR
+                UnityEditor.EditorApplication.isPlaying = false;
+        #else
+            Application.Quit();
+        #endif
     }
 }

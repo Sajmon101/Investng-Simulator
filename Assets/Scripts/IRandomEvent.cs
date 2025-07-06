@@ -2,8 +2,6 @@ using UnityEngine;
 
 public interface IRandomEvent
 {
-    void Apply();
-    string GetAlertDescription();
+    bool Apply();
     float probability { get; }
-    int roundNr { get; set; }
 }

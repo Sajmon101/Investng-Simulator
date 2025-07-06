@@ -13,5 +13,6 @@ public class MainGamePanel : MonoBehaviour, IUpdatablePanel
         rumorPanel.UpdatePanel();
         playerCashPanel.UpdatePanel();
         randomEventsPanel.UpdatePanel();
+        roundNrPanel.UpdatePanel();
     }
 }

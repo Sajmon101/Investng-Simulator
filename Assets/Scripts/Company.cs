@@ -10,6 +10,7 @@ public class Company
     public PriceChangeDirection priceDirection { get; private set; } = PriceChangeDirection.NoChange;
     public int companyID { get; private set; } = -1;
     public List<Sector> sectors = new List<Sector>();
+    public int lastRoundWithPlayerTriggerEvent = -1;
 
     public enum PriceChangeDirection
     {

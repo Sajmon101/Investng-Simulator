@@ -15,4 +15,5 @@ public class Rumor
 {
     public string rumor;
     public List<RumorEffect> effects;
+
 }

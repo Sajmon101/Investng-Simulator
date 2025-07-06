@@ -12,6 +12,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] RoundNrPanel roundNrPanel;
     [SerializeField] EventLogPanel eventLogPanel;
     [SerializeField] RandomEventsPanel randomEventPanel;
+    [SerializeField] EndPanel endPanel;
+    [SerializeField] MainGamePanel mainGamePanel;
+    [SerializeField] EfectPanel efectPanel;
     public RumorPanel rumorPanel;
 
     private void OnEnable()
@@ -22,10 +25,10 @@ public class UIManager : MonoBehaviour
         EventManager.Instance.OnRecordMessage += HandleRecordMessageEvent;
     }
 
-    private void HandleRandomEventTrigger(IRandomEvent obj)
+    private void HandleRandomEventTrigger(IGameLogs obj)
     {
-        eventLogPanel.AddLog(obj.GetAlertDescription());
-        randomEventPanel.SetPanelData(obj.GetAlertDescription());
+        eventLogPanel.AddLog(obj.GetLog());
+        randomEventPanel.SetPanelData(obj.GetLog().message);
     }
 
     private void HandleRecordMessageEvent(Company company, string msg, InfoMessageType type)
@@ -42,7 +45,8 @@ public class UIManager : MonoBehaviour
 
     private void HandleNextRoundEvent()
     {
-        GameManager.Instance.IncreaseRoundNr();
+
+        randomEventPanel.Clear();
     }
 
     public void InitializeCompaniesRecords(List<Company> companies)
@@ -57,6 +61,21 @@ public class UIManager : MonoBehaviour
         var initializable = panel.GetComponent<IUpdatablePanel>();
         if (initializable != null)
             initializable.UpdatePanel();
+    }
+
+    public void ShowEffectOrEndPanel()
+    {
+        if (GameManager.Instance.roundNr <= GameManager.Instance.maxRoundNr)
+        {
+            HidePanel(mainGamePanel.gameObject);
+            ShowPanel(efectPanel.gameObject);
+        }
+        else
+        {
+            HidePanel(mainGamePanel.gameObject);
+            ShowPanel(endPanel.gameObject);
+            //EventManager.Instance.GameEndEvent();
+        }
     }
 
     public void HidePanel(GameObject panel)

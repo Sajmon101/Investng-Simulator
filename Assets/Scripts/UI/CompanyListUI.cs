@@ -23,8 +23,8 @@ public class CompanyListUI : MonoBehaviour, IUpdatablePanel
         {
             CompanyRecord record = Instantiate(recordPrefab, transform);
             records.Add(record);
-            record.GetComponent<RectTransform>().anchoredPosition = firstRecordPoint.GetComponent<RectTransform>().anchoredPosition + offset;
-            offset += new Vector2(0, -recordSpace);
+            //record.GetComponent<RectTransform>().anchoredPosition = firstRecordPoint.GetComponent<RectTransform>().anchoredPosition + offset;
+            //offset += new Vector2(0, -recordSpace);
             record.company = company;
             record.InitializeCompanyData(company.companyName, company.stockPrice, 0);
             record.player = player;

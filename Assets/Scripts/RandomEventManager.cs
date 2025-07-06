@@ -6,7 +6,7 @@ using UnityEngine;
 public class RandomEventManager : MonoBehaviour
 {
     public static RandomEventManager Instance { get; private set; }
-    public event Action<IRandomEvent> OnRandomEventTriggered;
+    public event Action<IGameLogs> OnRandomEventTriggered;
 
     private void Awake()
     {
@@ -14,13 +14,17 @@ public class RandomEventManager : MonoBehaviour
         else Destroy(gameObject);
     }
 
-    public bool TryTriggerEvent(IRandomEvent gameEvent)
+    public bool TryTriggerEvent<T>(T gameEvent) where T : IRandomEvent, IGameLogs
     {
         if (UnityEngine.Random.value < gameEvent.probability)
         {
-            gameEvent.Apply();
-            OnRandomEventTriggered?.Invoke(gameEvent);
-            return true;
+            if (gameEvent.Apply())
+            {
+                OnRandomEventTriggered?.Invoke(gameEvent);
+                return true;
+            }
+
+            return false;
         }
         else
         {

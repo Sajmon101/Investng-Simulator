@@ -15,4 +15,10 @@ public class RandomEventsPanel : MonoBehaviour, IUpdatablePanel
     {
         data = text;
     }
+
+    public void Clear()
+    {
+        data = "Rynek stabilny – brak wyj¹tkowych zdarzeñ.";
+        randomEventText.text = data;
+    }
 }

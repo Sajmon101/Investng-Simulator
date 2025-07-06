@@ -9,12 +9,14 @@ public class StockMarket : MonoBehaviour
     public List<Company> companies { get; private set; }
     [SerializeField] private Player player;
     public static StockMarket Instance { get; private set; }
+    [SerializeField]  EventLogPanel eventLogPanel;
 
     private void OnEnable()
     {
         EventManager.Instance.OnNextRound += HandleOnNextRoundEvent;
         EventManager.Instance.OnBuyButtonClicked += HandleOnBuyButtonClickedEvent;
         EventManager.Instance.OnSellButtonClicked += HandleOnSellButtonClickedEvent;
+        EventManager.Instance.OnGameEnd += HandleOnGameEndEvent;
     }
 
 
@@ -55,12 +57,21 @@ public class StockMarket : MonoBehaviour
 
     private void HandleOnNextRoundEvent()
     {
+        player.SaveCurrentRoundStats();
+        eventLogPanel.AddLog(player.GetLog());
         UpdateCompaniesPrices();
+        player.ResetPreviosRoundStocks();
+        GameManager.Instance.IncreaseRoundNr();
         //Debug.Log("Sold stocks this round: " + player.stocksSoldThisRound[companies[0]]);
         //Debug.Log("Bought stocks this round: " + player.stocksBoughtThisRound[companies[0]]);
-        player.ResetPreviosRoundStocks();
         UpdateCompaniesDirections();
         EventManager.Instance.PrizeChangeEvent();
+    }
+
+    private void HandleOnGameEndEvent()
+    {
+        //player.SaveCurrentRoundStats();
+        //Debug.Log("Game ended. Saving final stats.");
     }
 
     private void UpdateCompaniesPrices()
