@@ -10,10 +10,14 @@ public class EventLogPanel : MonoBehaviour
     public Transform contentParent;
     public static List<Log> AllLogs { get; } = new List<Log>();
 
+    private void OnEnable()
+    {
+        RandomEventManager.Instance.OnRandomEventTriggered += HandleRandomEventTriggered;
+    }
+
     private void HandleRandomEventTriggered(IGameLogs randomEvent)
     {
         AddLog(randomEvent.GetLog());
-        Debug.Log("Log added: ");
     }
 
     public void AddLog(Log log)

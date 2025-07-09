@@ -4,7 +4,21 @@ using UnityEngine;
 public class RandomEventsPanel : MonoBehaviour, IUpdatablePanel
 {
     [SerializeField] TMP_Text randomEventText;
+
     private string data;
+
+    private void OnEnable()
+    {
+        Clear();
+        UpdatePanel();
+        RandomEventManager.Instance.OnRandomEventTriggered += HandleRandomEventTrigger;
+
+    }
+
+    private void HandleRandomEventTrigger(IGameLogs obj)
+    {
+        SetPanelData(obj.GetLog().message);
+    }
 
     public void UpdatePanel()
     {

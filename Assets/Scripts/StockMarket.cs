@@ -16,7 +16,6 @@ public class StockMarket : MonoBehaviour
         EventManager.Instance.OnNextRound += HandleOnNextRoundEvent;
         EventManager.Instance.OnBuyButtonClicked += HandleOnBuyButtonClickedEvent;
         EventManager.Instance.OnSellButtonClicked += HandleOnSellButtonClickedEvent;
-        EventManager.Instance.OnGameEnd += HandleOnGameEndEvent;
     }
 
 
@@ -62,17 +61,10 @@ public class StockMarket : MonoBehaviour
         UpdateCompaniesPrices();
         player.ResetPreviosRoundStocks();
         GameManager.Instance.IncreaseRoundNr();
-        //Debug.Log("Sold stocks this round: " + player.stocksSoldThisRound[companies[0]]);
-        //Debug.Log("Bought stocks this round: " + player.stocksBoughtThisRound[companies[0]]);
+
         UpdateCompaniesDirections();
-        EventManager.Instance.PrizeChangeEvent();
     }
 
-    private void HandleOnGameEndEvent()
-    {
-        //player.SaveCurrentRoundStats();
-        //Debug.Log("Game ended. Saving final stats.");
-    }
 
     private void UpdateCompaniesPrices()
     {
@@ -128,9 +120,9 @@ public class StockMarket : MonoBehaviour
     }
     private int CalculatePriceModifierDueToSupply(Company company)
     {
-        float baseRandomness = UnityEngine.Random.Range(-1.5f, 1.5f); // losowy wp³yw w % (-1.5% do 1.5%)
-        float demandFactor = 0.25f; // 0.25% za ka¿d¹ kupion¹ akcjê
-        float supplyFactor = 0.25f; // 0.25% za ka¿d¹ sprzedan¹ akcjê (ujemnie)
+        float baseRandomness = UnityEngine.Random.Range(-1.5f, 1.5f);
+        float demandFactor = 0.25f; 
+        float supplyFactor = 0.25f; 
 
         if (player.stocksBoughtThisRound.TryGetValue(company, out int boughtThisRound) && player.stocksSoldThisRound.TryGetValue(company, out int soldThisRound))
         {

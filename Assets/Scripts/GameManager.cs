@@ -25,7 +25,6 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        uiManager.InitializeCompaniesRecords(stockMarket.companies);
         rumorManager.LoadRumors();
         rumorManager.DrawNewRumor();
         uiManager.rumorPanel.UpdatePanel();

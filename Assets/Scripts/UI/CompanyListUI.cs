@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
@@ -6,10 +7,27 @@ using UnityEngine;
 public class CompanyListUI : MonoBehaviour, IUpdatablePanel
 {
     [SerializeField] private CompanyRecord recordPrefab;
-    [SerializeField] private RectTransform firstRecordPoint;
-    Vector2 offset = new Vector2(0, 0);
-    int recordSpace = 90;
+    [SerializeField] private Player player;
+
     private List<CompanyRecord> records = new List<CompanyRecord>();
+
+    private void OnEnable()
+    {
+        EventManager.Instance.OnRecordMessage += HandleRecordMessageEvent;
+
+        UpdatePanel();
+    }
+
+    private void HandleRecordMessageEvent(Company company, string msg, InfoMessageType type)
+    {
+        ShowRecordMessage(company, msg, type);
+        UpdatePanel();
+    }
+
+    private void Start()
+    {
+        InitializeListUI(StockMarket.Instance.companies, player);
+    }
 
     public void UpdatePanel()
     {
@@ -23,8 +41,6 @@ public class CompanyListUI : MonoBehaviour, IUpdatablePanel
         {
             CompanyRecord record = Instantiate(recordPrefab, transform);
             records.Add(record);
-            //record.GetComponent<RectTransform>().anchoredPosition = firstRecordPoint.GetComponent<RectTransform>().anchoredPosition + offset;
-            //offset += new Vector2(0, -recordSpace);
             record.company = company;
             record.InitializeCompanyData(company.companyName, company.stockPrice, 0);
             record.player = player;
