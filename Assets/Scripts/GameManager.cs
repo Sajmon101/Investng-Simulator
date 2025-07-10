@@ -4,7 +4,6 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] StockMarket stockMarket;
-    [SerializeField] UIManager uiManager;
     [SerializeField] RumorManager rumorManager;
     [SerializeField] MainGamePanel mainGamePanel;
     [SerializeField] Player player;
@@ -27,8 +26,6 @@ public class GameManager : MonoBehaviour
     {
         rumorManager.LoadRumors();
         rumorManager.DrawNewRumor();
-        uiManager.rumorPanel.UpdatePanel();
-        mainGamePanel.UpdatePanel();
     }
 
     public void OnBtnNextRound()

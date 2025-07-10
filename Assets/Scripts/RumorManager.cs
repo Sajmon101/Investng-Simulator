@@ -42,7 +42,12 @@ public class RumorManager : MonoBehaviour
     
     public string GetRumorText()
     {
-        return currentRumor.rumor;
+        if (currentRumor != null)
+        {
+            return currentRumor.rumor;
+        }
+
+        return "Nie uda³o siê pobraæ tekstu plotki.";
     }
 
     public string GetAllCompaniesEffectText()

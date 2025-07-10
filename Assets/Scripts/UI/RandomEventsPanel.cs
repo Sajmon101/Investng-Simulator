@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-public class RandomEventsPanel : MonoBehaviour, IUpdatablePanel
+public class RandomEventsPanel : MonoBehaviour
 {
     [SerializeField] TMP_Text randomEventText;
 

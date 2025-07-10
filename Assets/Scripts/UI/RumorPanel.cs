@@ -1,11 +1,18 @@
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class RumorPanel : MonoBehaviour, IUpdatablePanel
+public class RumorPanel : MonoBehaviour
 {
     public TMP_Text rumor_text;
+
+    private void OnEnable()
+    {
+        UpdatePanel();
+    }
+
     public void UpdatePanel()
     {
-        rumor_text.text = RumorManager.Instance.GetRumorText();
+        string rumorText = RumorManager.Instance.GetRumorText();
     }
 }
