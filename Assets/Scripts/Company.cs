@@ -31,11 +31,16 @@ public class Company
     {
         previousStockPrice = stockPrice;
         stockPrice = newPrice;
+        UpdatePriceDirection();
     }
 
-    public void UpdatePriceDirection(PriceChangeDirection newDir)
+    private void UpdatePriceDirection()
     {
-        priceDirection = newDir;
+        if (stockPrice > previousStockPrice)
+            priceDirection = PriceChangeDirection.Up;
+        else if (stockPrice < previousStockPrice)
+            priceDirection = PriceChangeDirection.Down;
+        else
+            priceDirection = PriceChangeDirection.NoChange;
     }
-
 }

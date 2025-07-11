@@ -1,9 +1,14 @@
 using TMPro;
 using UnityEngine;
 
-public class RoundNrPanel : MonoBehaviour, IUpdatablePanel
+public class RoundNrPanel : MonoBehaviour
 {
     [SerializeField] TMP_Text roundNrUI;
+
+    private void OnEnable()
+    {
+        UpdatePanel();
+    }
 
     public void UpdatePanel()
     {

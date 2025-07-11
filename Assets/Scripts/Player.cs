@@ -137,11 +137,14 @@ public class Player : MonoBehaviour, IGameLogs
             stocksSoldThisRound[company] = 1;
     }
 
-    public void SetupPlayerStocks(Company company)
+    public void SetupPlayerStocks(List<Company> companies)
     {
-        ownedStocks[company] = 0;
-        stocksBoughtThisRound[company] = 0;
-        stocksSoldThisRound[company] = 0;
+        foreach (Company company in companies)
+        {
+            ownedStocks[company] = 0;
+            stocksBoughtThisRound[company] = 0;
+            stocksSoldThisRound[company] = 0;
+        }
     }
 
     public int GetOwnedStocksCount(Company company)

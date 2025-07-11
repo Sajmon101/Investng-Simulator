@@ -39,10 +39,12 @@ public class CompanyRecord : MonoBehaviour
     public void OnBuyButtonClicked()
     {
         EventManager.Instance.BuyButtonClickedEvent(company);
+        player.TryBuyStock(company);
     }
     public void OnSellButtonClicked()
     {
         EventManager.Instance.SellButtonClickedEvent(company);
+        player.TrySellStock(company);
     }
 
     public void ShowMessage(string message, InfoMessageType type)

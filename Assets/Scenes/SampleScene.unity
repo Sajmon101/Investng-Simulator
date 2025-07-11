@@ -766,6 +766,7 @@ MonoBehaviour:
   stockMarket: {fileID: 1120218333}
   rumorManager: {fileID: 1740226767}
   mainGamePanel: {fileID: 1055977735}
+  eventLogPanel: {fileID: 889104345}
   player: {fileID: 2112770638}
   roundNr: 1
   maxRoundNr: 20

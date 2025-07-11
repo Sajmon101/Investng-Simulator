@@ -14,5 +14,6 @@ public class RumorPanel : MonoBehaviour
     public void UpdatePanel()
     {
         string rumorText = RumorManager.Instance.GetRumorText();
+        rumor_text.text = rumorText;
     }
 }

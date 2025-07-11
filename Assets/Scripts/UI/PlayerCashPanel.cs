@@ -2,7 +2,7 @@ using System;
 using TMPro;
 using UnityEngine;
 
-public class PlayerCashPanel : MonoBehaviour, IUpdatablePanel
+public class PlayerCashPanel : MonoBehaviour
 {
     [SerializeField] TMP_Text cashText;
     [SerializeField] Player player;
@@ -10,6 +10,8 @@ public class PlayerCashPanel : MonoBehaviour, IUpdatablePanel
     private void OnEnable()
     {
         EventManager.Instance.OnPlayerCashChanged += OnPlayerCashChanged;
+
+        UpdatePanel();
     }
 
     private void OnPlayerCashChanged()

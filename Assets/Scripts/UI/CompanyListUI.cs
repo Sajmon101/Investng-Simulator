@@ -4,7 +4,7 @@ using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class CompanyListUI : MonoBehaviour, IUpdatablePanel
+public class CompanyListUI : MonoBehaviour
 {
     [SerializeField] private CompanyRecord recordPrefab;
     [SerializeField] private Player player;

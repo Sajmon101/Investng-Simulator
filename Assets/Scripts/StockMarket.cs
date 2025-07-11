@@ -11,30 +11,13 @@ public class StockMarket : MonoBehaviour
     public static StockMarket Instance { get; private set; }
     [SerializeField]  EventLogPanel eventLogPanel;
 
-    private void OnEnable()
-    {
-        EventManager.Instance.OnNextRound += HandleOnNextRoundEvent;
-        EventManager.Instance.OnBuyButtonClicked += HandleOnBuyButtonClickedEvent;
-        EventManager.Instance.OnSellButtonClicked += HandleOnSellButtonClickedEvent;
-    }
-
-
-    private void OnDisable()
-    {
-        EventManager.Instance.OnNextRound -= HandleOnNextRoundEvent;
-        EventManager.Instance.OnBuyButtonClicked -= HandleOnBuyButtonClickedEvent;
-        EventManager.Instance.OnSellButtonClicked -= HandleOnSellButtonClickedEvent;
-    }
-
     void Awake()
     {
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
 
         CreateCompanies();
-        InitializePlayersStocks();
     }
-
 
     private void CreateCompanies()
     {
@@ -46,54 +29,13 @@ public class StockMarket : MonoBehaviour
         };
     }
 
-    public void InitializePlayersStocks()
-    {
-        foreach (Company company in companies)
-        {
-            player.SetupPlayerStocks(company);
-        }
-    }
 
-    private void HandleOnNextRoundEvent()
-    {
-        player.SaveCurrentRoundStats();
-        eventLogPanel.AddLog(player.GetLog());
-        UpdateCompaniesPrices();
-        player.ResetPreviosRoundStocks();
-        GameManager.Instance.IncreaseRoundNr();
-
-        UpdateCompaniesDirections();
-    }
-
-
-    private void UpdateCompaniesPrices()
+    public void UpdateCompaniesPrices()
     {
         foreach (Company company in companies)
         {
             int newPrize = CountNewPrize(company);
             company.UpdatePrice(newPrize);
-        }
-    }
-
-    private void UpdateCompaniesDirections()
-    {
-        foreach (Company company in companies)
-        {
-            int stockPrize = company.stockPrice;
-            int previousStockPrize = company.previousStockPrice;
-
-            if (stockPrize > previousStockPrize)
-            {
-                company.UpdatePriceDirection(Company.PriceChangeDirection.Up);
-            }
-            else if (stockPrize < previousStockPrize)
-            {
-                company.UpdatePriceDirection(Company.PriceChangeDirection.Down);
-            }
-            else
-            {
-                company.UpdatePriceDirection(Company.PriceChangeDirection.NoChange);
-            }
         }
     }
 
@@ -137,16 +79,6 @@ public class StockMarket : MonoBehaviour
 
         Debug.LogError("Can't update company price due to supply, demand");
         return 0;
-    }
-
-    private void HandleOnBuyButtonClickedEvent(Company company)
-    {
-        player.TryBuyStock(company);
-    }
-
-    private void HandleOnSellButtonClickedEvent(Company company)
-    {
-        player.TrySellStock(company);
     }
 
 }

@@ -19,6 +19,12 @@ public class RumorManager : MonoBehaviour
         Instance = this;
     }
 
+    private void Start()
+    {
+        LoadRumors();
+        DrawNewRumor();
+    }
+
     public void LoadRumors()
     {
         Debug.Log("Wczytywanie plotek...");
